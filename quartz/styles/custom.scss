@@ -1,3 +1,44 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+::selection { background: var(--secondary); color: var(--light); }
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+.center > article { animation: fadeInUp .5s .1s ease both; }
+
+article { line-height: 1.85; font-size: 1.05rem; }
+article > h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -.02em; }
+article > h2 { font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; padding-bottom: .4rem; border-bottom: 1px solid var(--lightgray); }
+article > h3 { font-size: 1.25rem; font-weight: 700; margin-top: 2rem; }
+
+img { border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,.05); transition: box-shadow .3s,transform .3s; }
+img:hover { box-shadow: 0 6px 20px rgba(0,0,0,.08); transform: translateY(-1px); }
+
+blockquote { border-left: 3px solid var(--secondary); background: var(--highlight); border-radius: 0 8px 8px 0; padding: .8rem 1.2rem; }
+
+pre { border-radius: 8px; border: 1px solid var(--lightgray); box-shadow: 0 1px 4px rgba(0,0,0,.03); }
+pre > code { font-size: .85rem; line-height: 1.7; }
+
+hr { border: none; height: 1px; background: linear-gradient(to right,transparent,var(--lightgray) 25%,var(--lightgray) 75%,transparent); margin: 3rem auto; }
+
+.navigation-progress { height: 2px; background: var(--secondary); }
+
+.sidebar.left::after { content: ""; position: absolute; right: 0; top: 12%; height: 76%; width: 1px; background: linear-gradient(to bottom,transparent,var(--lightgray) 25%,var(--lightgray) 75%,transparent); }
+
+.sidebar.right .graph,.sidebar.right .toc,.sidebar.right .backlinks { border: 1px solid var(--lightgray); border-radius: 12px; padding: .8rem 1rem; background: var(--light); }
+.sidebar.right .graph > h3,.sidebar.right .backlinks > h3 { font-family: var(--headerFont); font-size: .9rem; font-weight: 700; color: var(--dark); margin: 0 0 .2rem; }
+.sidebar.right .graph .graph-outer { border: none; border-radius: 8px; height: 200px; }
+
+.tags li > a { border-radius: 20px; border: 1px solid var(--lightgray); padding: .15rem .6rem; font-size: .82rem; text-decoration: none !important; background: none !important; }
+
+footer { opacity: .45; font-size: .85rem; }
+footer:hover { opacity: .8; }
+footer ul { justify-content: center; }
+
+@media all and (max-width: 800px) {
+  article > h1 { font-size: 1.8rem; }
+  article > h2 { font-size: 1.35rem; }
+}
